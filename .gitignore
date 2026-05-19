@@ -10,9 +10,8 @@ __pycache__/
 # Saídas geradas pelo pipeline
 outputs/
 
-# Vídeos e modelos grandes (rastreados via Git LFS se necessário)
+# Vídeos de entrada (geralmente grandes demais para o repo)
 assets/*.mp4
-assets/*.onnx
 
 # macOS
 .DS_Store
