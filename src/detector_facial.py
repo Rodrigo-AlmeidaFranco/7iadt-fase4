@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Detecção facial usando o modelo YuNet via OpenCV.
 

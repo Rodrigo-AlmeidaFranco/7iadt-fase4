@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Reconhecimento de expressões faciais para análise clínica comportamental.
 

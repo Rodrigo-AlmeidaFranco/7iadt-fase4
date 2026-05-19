@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Pipeline de análise clínica comportamental por vídeo.
 
