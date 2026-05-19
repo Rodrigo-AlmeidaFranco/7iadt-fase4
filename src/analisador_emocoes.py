@@ -1,10 +1,10 @@
-from __future__ import annotations
 """
 Reconhecimento de expressões faciais para análise clínica comportamental.
 
 Utiliza a biblioteca FER com MTCNN para alinhamento facial antes da classificação.
 As emoções são mapeadas para terminologia clínica em português para padronização dos laudos.
 """
+from __future__ import annotations
 
 from fer import FER
 

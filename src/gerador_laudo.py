@@ -34,7 +34,7 @@ def gerar_laudo_json(
     contagem_estados: dict,
     caminhos_saida: dict,
     caminho_json: str,
-) -> dict:
+) -> None:
     """Serializa e salva o laudo clínico estruturado em JSON."""
     laudo = {
         "total_quadros_analisados": total_quadros,
@@ -50,8 +50,6 @@ def gerar_laudo_json(
 
     with open(caminho_json, "w", encoding="utf-8") as arquivo:
         json.dump(laudo, arquivo, ensure_ascii=False, indent=2)
-
-    return laudo
 
 
 def gerar_laudo_txt(

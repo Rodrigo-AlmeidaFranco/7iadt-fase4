@@ -1,10 +1,10 @@
-from __future__ import annotations
 """
 Detecção facial usando o modelo YuNet via OpenCV.
 
 Implementa detecção em múltiplas rotações para cobrir diferentes orientações de cabeça,
 relevante em contextos clínicos onde o paciente pode estar em postura não-frontal.
 """
+from __future__ import annotations
 
 import cv2
 import numpy as np
@@ -137,13 +137,12 @@ def detectar_faces(
     Retorna lista de (x, y, w, h) nas coordenadas do quadro recebido.
     """
     altura_orig, largura_orig = quadro_bgr.shape[:2]
-    melhor_conjunto: list[tuple] = []
+    todas_deteccoes: list[tuple] = []
 
     for angulo in (0, 90, 180, 270):
         rotacionado = _rotacionar_imagem(quadro_bgr, angulo)
         deteccoes_brutas = _detectar_com_yunet(detector, rotacionado)
 
-        mapeadas = []
         for (x, y, w, h, _score) in deteccoes_brutas:
             if w < tamanho_minimo[0] or h < tamanho_minimo[1]:
                 continue
@@ -155,13 +154,9 @@ def detectar_faces(
             yo = max(0, min(yo, altura_orig - 1))
             wo = max(1, min(wo, largura_orig - xo))
             ho = max(1, min(ho, altura_orig - yo))
-            mapeadas.append((xo, yo, wo, ho))
+            todas_deteccoes.append((xo, yo, wo, ho))
 
-        # Mantém o conjunto com maior número de detecções entre as 4 rotações
-        if len(mapeadas) > len(melhor_conjunto):
-            melhor_conjunto = mapeadas
-
-    return _suprimir_nao_maximos(melhor_conjunto, sobreposicao_nms)
+    return _suprimir_nao_maximos(todas_deteccoes, sobreposicao_nms)
 
 
 def escalar_faces_para_original(
