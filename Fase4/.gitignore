@@ -1,0 +1,23 @@
+# Ambiente virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Saídas geradas pelo pipeline
+outputs/
+
+# Vídeos e modelos grandes (rastreados via Git LFS se necessário)
+assets/*.mp4
+assets/*.onnx
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.egg-info/

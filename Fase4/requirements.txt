@@ -1,0 +1,21 @@
+# setuptools deve ser instalado antes dos demais para evitar erro de pkg_resources
+setuptools
+
+# visão computacional e processamento de vídeo
+opencv-python
+
+# análise numérica
+numpy
+
+# exportação de dados tabulares (CSV)
+pandas
+
+# barra de progresso durante o processamento
+tqdm
+
+# reconhecimento de expressões faciais (requer TensorFlow)
+fer==22.4.0
+
+# backend de deep learning exigido pelo fer
+# instalação separada recomendada antes do fer (veja README)
+tensorflow
